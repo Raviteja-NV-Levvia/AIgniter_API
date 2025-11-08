@@ -1,8 +1,10 @@
-using System.Data;
+using AIPoweredDefectManagementAssistant.Datalayer;
 using AIPoweredDefectManagementAssistant.Services.AzureService;
 using AIPoweredDefectManagementAssistant.Services.FileService;
 using AIPoweredDefectManagementAssistant.Services.OpenAIService;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,9 @@ if (string.IsNullOrWhiteSpace(connectionString))
 
 // Register an IDbConnection factory (MS SQL)
 builder.Services.AddTransient<IDbConnection>(_ => new SqlConnection(connectionString));
+
+builder.Services.AddDbContext<AppDBContext>(options =>
+    options.UseSqlServer(connectionString));
 
 // Add services to the container.
 builder.Services.AddControllers(); // <-- Required to avoid the InvalidOperationException

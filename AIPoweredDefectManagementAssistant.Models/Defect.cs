@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,9 @@ namespace AIPoweredDefectManagementAssistant.Models
 {
     public class Defect
     {
+        [Key]
         public string TestCaseId { get; set; }
+        [Required]
         public string Title { get; set; }
         public string Module { get; set; }
         public string ExpectedResult { get; set; }
