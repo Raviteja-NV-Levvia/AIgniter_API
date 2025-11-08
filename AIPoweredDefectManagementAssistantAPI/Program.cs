@@ -1,8 +1,8 @@
+using System.Data;
 using AIPoweredDefectManagementAssistant.Services.AzureService;
 using AIPoweredDefectManagementAssistant.Services.FileService;
 using AIPoweredDefectManagementAssistant.Services.OpenAIService;
 using Microsoft.Data.SqlClient;
-using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,10 +21,13 @@ builder.Services.AddControllers(); // <-- Required to avoid the InvalidOperation
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IOpenAIService, OpenAIService>();
+builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<IAzureOpenAIClient, AzureOpenAIClient>();
 builder.Services.AddScoped<IAzureServices, AzureServices>();
 
 builder.Services.AddSingleton<ExcelService>();
+// Register Azure OpenAI client
 
 var app = builder.Build();
 

@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AIPoweredDefectManagementAssistant.Models
+namespace AIPoweredDefectManagementAssistant.Services.CSVService
 {
-    public class OpenAIRequestDto
-    {
-    }
-
-    public class OpenAIResponseDto
+    public interface ICsvService
     {
     }
 }

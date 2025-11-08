@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AIPoweredDefectManagementAssistant.Services.OpenAIService
+namespace AIPoweredDefectManagementAssistant.Models
 {
-    public class OpenAIService: IOpenAIService
+    public class CsvDto
     {
     }
 }
