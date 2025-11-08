@@ -1,4 +1,5 @@
 using AIPoweredDefectManagementAssistant.Services.AzureService;
+using AIPoweredDefectManagementAssistant.Services.FileService;
 using AIPoweredDefectManagementAssistant.Services.OpenAIService;
 using Microsoft.Data.SqlClient;
 using System.Data;
@@ -22,6 +23,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IOpenAIService, OpenAIService>();
 builder.Services.AddScoped<IAzureServices, AzureServices>();
+
+builder.Services.AddSingleton<ExcelService>();
 
 var app = builder.Build();
 
